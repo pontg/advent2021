@@ -6,8 +6,7 @@ from typing import List
 import requests
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='yolo', usage=' I said yolo !')
-    #parser.add_argument('--url', required=True) ## actually stupid, need to be logged in to get your private list
+    parser = argparse.ArgumentParser()
     parser.add_argument('--path', required=True)
 
     return parser.parse_args()
