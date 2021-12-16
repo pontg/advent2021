@@ -25,19 +25,19 @@ class packet ():
         self.value = -1
         if self.type == 4:
             print("litteral")
-            temp = []
+            temp = ''
             sub_block = input[6:]
             #print(sub_block)
             count = 0
             while sub_block[0] != '0':
                 #print(sub_block)
-                temp.append(sub_block[1:5])
+                temp += sub_block[1:5]
                 sub_block = sub_block[5:]
                 count += 1
-            temp.append(sub_block[1:5])
+            temp += sub_block[1:5]
             self.rest = sub_block[5:]
             self.length = count + 1
-            self.value = int(temp[0],2)
+            self.value = int(temp,2)
             #print("rest" + self.rest)
             #print(temp, self.value)
         else:
@@ -92,7 +92,7 @@ class packet ():
             self.value = 0
             if self.child[0].evaluate() == self.child[1].evaluate():
                 self.value = 1
-        #print( "value" + str(self.value))
+        print( "value" + str(self.value))
         return self.value
 
 
@@ -120,7 +120,7 @@ class packet ():
 
 def parse_block( block):
     pack = packet(block)
-    #print(pack.__str__())
+    print(pack.__str__())
     print (pack.evaluate())
     print (pack.value)
 
@@ -133,7 +133,7 @@ if __name__ == '__main__':
     hex_as_int = int(str(input), 16)
     binary =bin(hex_as_int)
     padded_binary = binary[2:].zfill(end_length)
-    #print(padded_binary)
+    print(padded_binary)
     parse_block(padded_binary)
 
     #print ( "COUNT" + str(COUNT))
