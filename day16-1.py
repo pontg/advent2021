@@ -24,7 +24,7 @@ class packet ():
         self.child = []
         self.value = -1
         if self.type == 4:
-            print("litteral")
+            #print("litteral")
             temp = ''
             sub_block = input[6:]
             #print(sub_block)
